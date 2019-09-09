@@ -12,7 +12,6 @@
     background-color: #fff;
     padding: 5px 20px 5px 5px;
     margin-top: 1px;
-    font-size: 13px;
     color: #aaa;
     outline-offset: -2px;
     white-space: nowrap;
@@ -30,14 +29,16 @@
 
 .ms-options-wrap > button:after {
     content: ' ';
-    height: 0;
+	height: 7px;
+	width: 7px;
     position: absolute;
-    top: 50%;
+    top: calc(50% - 5px);
     right: 5px;
-    width: 0;
-    border: 6px solid rgba(0, 0, 0, 0);
-    border-top-color: #999;
-    margin-top: -3px;
+	border-width: 2px 2px 0 0;
+	border-color: #999;
+	border-style: solid;
+	-webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(90deg);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(90deg);
 }
 
 .ms-options-wrap.ms-has-selections > button {
@@ -145,4 +146,100 @@
     overflow: hidden;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+.zcmorefun-multi-select {
+	position: relative;
+    font-size: 14px;
+}
+.zcmorefun-multi-select .ms-options-wrap {
+	width: 260px;
+}
+.zcmorefun-multi-select .ms-options-wrap > button:focus, .ms-options-wrap > button {
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(229,229,229,1);
+	border-radius:6px;
+	height: 34px;
+}
+.zcmorefun-multi-select .ms-options-wrap > button:after {
+	border-bottom-width: 0px;
+	transition: transform 0.5s;
+	-moz-transition: transform 0.5s;	/* Firefox 4 */
+	-webkit-transition: transform 0.5s;	/* Safari 和 Chrome */
+	-o-transition: transform 0.5s;	/* Opera */
+}
+.zcmorefun-multi-select .ms-options-wrap.ms-active > button:after {
+	transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(270deg);
+	-ms-transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(270deg); /* Internet Explorer */
+	-moz-transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(270deg); /* Firefox */
+	-webkit-transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(270deg); /* Safari 和 Chrome */
+	-o-transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(270deg); /* Opera */
+}
+.zcmorefun-multi-select .ms-options-wrap .ms-options {
+	background:rgba(255,255,255,1);
+	box-shadow:0px 0px 6px 0px rgba(221,221,221,1);
+	border-radius:6px;
+	border-width: 0px;
+}
+.zcmorefun-multi-select .ms-options-wrap > .ms-options > ul label {
+	padding-left: 25px;
+	margin-left: 8px;
+	width: calc(100% - 15px);
+}
+.zcmorefun-multi-select .ms-options-wrap > .ms-options > ul li.selected label {
+	background-color: transparent;
+}
+.zcmorefun-multi-select .ms-options-wrap > .ms-options > .ms-selectall.global {
+	margin-left: 10px;
+	margin-top: 10px;
+	color: #000;
+}
+.zcmorefun-multi-select .ms-options-wrap > .ms-options > .ms-selectall.global:hover {
+	color: #518FE7;
+}
+.zcmorefun-multi-select input[type="checkbox"]::before {
+	content: "\a0";  /*不换行空格*/
+	display: inline-block;
+	vertical-align: center;
+	width: 1.1em;
+	height: 1.1em;
+	margin-right: .4em;
+	border-radius: .2em;
+	background-color: white;
+	box-shadow:0px 0px 2px 0px rgba(221,221,221,1);
+	text-indent: .15em;
+	line-height: 1.2em;  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+}
+.zcmorefun-multi-select input[type="checkbox"]:checked::before {
+	content: "\2713";
+	color: #FFFFFF;
+	background-color: #518FE7;
+}
+
+.zcmorefun-multi-select .ms-options-wrap > .ms-options::-webkit-scrollbar {
+  height: 6px;
+}
+
+.zcmorefun-multi-select .ms-options-wrap > .ms-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.zcmorefun-multi-select .ms-options-wrap > .ms-options::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.zcmorefun-multi-select .ms-options-wrap > .ms-options::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.zcmorefun-multi-select .ms-options-wrap > .ms-options::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.zcmorefun-multi-select .ms-options-wrap > .ms-options::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: rgba(221,221,221, 0.5);
 }

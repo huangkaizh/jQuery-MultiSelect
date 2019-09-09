@@ -187,6 +187,7 @@
             // isolate options scroll
             // @source: https://github.com/nobleclem/jQuery-IsolatedScroll
             optionsWrap.on( 'touchmove mousewheel DOMMouseScroll', function ( e ) {
+				console.log("optionsWrap.on( 'touchmove mousewheel DOMMouseScroll");
                 if( ($(this).outerHeight() < $(this)[0].scrollHeight) ) {
                     var e0 = e.originalEvent,
                         delta = e0.wheelDelta || -e0.detail;
@@ -343,6 +344,7 @@
 
             // handle select all option
             optionsWrap.on('click', '.ms-selectall', function( event ){
+				console.log("optionsWrap click .ms-selectall");
                 event.preventDefault();
 
                 instance.updateSelectAll   = false;
@@ -451,6 +453,7 @@
 
             // BIND SELECT ACTION
             optionsWrap.on( 'click', 'input[type="checkbox"]', function(){
+				console.log("optionsWrap click input");
                 $(this).closest( 'li' ).toggleClass( 'selected' );
 
                 var select = optionsWrap.parent().siblings('.ms-list-'+ instance.listNumber +'.jqmsLoaded');
@@ -471,6 +474,7 @@
 
             // BIND FOCUS EVENT
             optionsWrap.on('focusin', 'input[type="checkbox"]', function(){
+				console.log("optionsWrap focusin input");
                 $(this).closest('label').addClass('focused');
             }).on('focusout', 'input[type="checkbox"]', function(){
                 $(this).closest('label').removeClass('focused');
@@ -862,7 +866,7 @@
                 thisCheckbox.prop( 'checked', true );
             }
 
-            thisOption.prepend( thisCheckbox );
+             thisOption.prepend( thisCheckbox );
 
             var searchTerm = '';
             if( instance.options.searchOptions.searchText ) {
